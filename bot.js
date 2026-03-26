@@ -23,17 +23,17 @@ const password = isEven ? process.env.PASSWORD2 : process.env.PASSWORD1;
 // const storeNumber = parseInt(process.env.STORE_NUMBER, 10);
 
 (async () => {
-  if (!email || !password ) {
-    console.error(
-      "❌ Missing EMAIL, PASSWORD, or STORE_NUMBER environment variables"
-    );
-    console.error("process.env keys:", Object.keys(process.env)); // debug
-    process.exit(1);
-  }
+  // if (!email || !password ) {
+  //   console.error(
+  //     "❌ Missing EMAIL, PASSWORD, or STORE_NUMBER environment variables"
+  //   );
+  //   console.error("process.env keys:", Object.keys(process.env)); // debug
+  //   process.exit(1);
+  // }
 
   const browser = await chromium.launch({
-    headless: false,
-    slowMo: 300,
+    headless: true,
+    slowMo: 100,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
